@@ -180,10 +180,6 @@ cython_debug/
 .DS_Store
 __MACOSX/
 
-# Output scripts (if regenerated)
-setup_postgres*.sh
-setup_mongo*.sh
-
 # Data archives
 *.zip
 
