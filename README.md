@@ -16,6 +16,17 @@ FAIRtrain-schema/
 
 ---
 
+### Create .env file
+Create a `.env` file with the following content:
+```env
+DB_USER=mac_username
+DB_NAME=fairtrain
+MONGO_DB=fairtrain
+DATA_PATH=path_to_data_files_csv_files
+DICT_PATH=path_to_dictionary_files_json_files
+```
+
+
 ## PostgreSQL Setup - Mac via homebrew
 
 ### 1. Install PostgreSQL (macOS)
@@ -30,13 +41,6 @@ createdb -U $(whoami) fairtrain
 ```
 - fairtrain is the name of the database
 
-### 3. Create .env file
-Create a `.env` file with the following content:
-```env
-DB_USER="comp username"
-DB_NAME="database name"
-```
-
 ### 4. Run the PostgreSQL setup script
 ```bash
 chmod +x setup_postgres.sh
@@ -45,13 +49,31 @@ chmod +x setup_postgres.sh
 
 - This script:
   - Creates a `samples` table using `schema.json`
-  - Loops through `data/*.csv` and imports into the table
+  - Loops through all CSVs in `$DATA_PATH` and imports them into the table
+
+- To verify the data was correctly inserted:
+```
+psql -U $(whoami) -d fairtrain
+SELECT * FROM samples LIMIT 5;
+```
+    -   This shows the top 5 records in the database
 
 ### 5. View in pgAdmin (optional)
 - Open pgAdmin
-- Connect to `localhost` > `fairtrain` > `schemas` > `tables` > `samples`
+- Click add New server on the dashboard
+- Add a name for the server in the name box in general tab
+- Go to connection tab
+    - hostname / address: `localhost`
+    - port: 5432
+    - maintance database: `postgres`
+    - username: your_mac_username 
+- Go to Object Explorer tab on the left side
+- Click on server that you created (the one that was named)
+- Click on `schemas`, then `tables`, then `samples`
+- Right-click samples tab on the object explorer tab
+    - Click on View/Edit Data then click on All Rows
+    - Click on the Data Output tab at the bottom of the page if not already opened
 
----
 
 ## MongoDB Setup - Mac via homebrew
 
@@ -76,8 +98,8 @@ chmod +x setup_mongo.sh
 
 - This script:
   - Creates a validated `samples` collection using `schema.json`
-  - Imports all `data/*.csv` into their own collections
-  - Imports all `dictionary/*.json` into a shared `dictionaries` collection
+  - Imports all CSVs from `$DATA_PATH` into individual collections
+  - Imports all JSONs from `$DICT_PATH` into a shared `dictionaries` collection
 
 ### 4. Verify in `mongosh`
 ```bash
