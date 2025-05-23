@@ -108,7 +108,7 @@ chmod +x setup_mongo.sh
 mongosh
 use fairtrain
 db.getCollectionNames()
-db.<csv_filename_without_extension>.findOne()
+db.<collectionName>.findOne()
 ```
 This shows the first 3 records on mongobd
 
