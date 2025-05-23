@@ -1,5 +1,10 @@
 # database_setup
 
+### Install Homebrew if not already
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
 ## Directory Structure
 - Sample data:
 ```
