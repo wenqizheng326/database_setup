@@ -59,6 +59,8 @@ SELECT * FROM samples LIMIT 5;
     -   This shows the top 5 records in the database
 
 ### 5. View in pgAdmin (optional)
+Install pgAdmin via website: https://www.pgadmin.org/download/pgadmin-4-macos/
+
 - Open pgAdmin
 - Click add New server on the dashboard
 - Add a name for the server in the name box in general tab
@@ -110,3 +112,10 @@ db.dictionaries.find().limit(3)
 ```
 This shows the first 3 records on mongobd
 
+### 5. View on mongo compass (optional)
+Install MongoDB Compass from website: https://www.mongodb.com/try/download/compass
+
+- Open mongodb compass
+- Go to connections tab on the left-hand side
+- Hover over `localhost:27017` until CONNECT button appears, then click on it
+- Click on the database that you created, in this example, it would be fairtrain
