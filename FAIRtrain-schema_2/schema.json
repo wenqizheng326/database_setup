@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TensileTestData",
+  "type": "object",
+  "properties": {
+    "sample_id": { "type": "string" },
+    "width": { "type": "number" },
+    "thickness": { "type": "number" },
+    "length": { "type": "number" },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mm": { "type": "number" },
+          "N": { "type": "number" }
+        },
+        "required": ["mm", "N"]
+      }
+    },
+    "extracted_properties": {
+      "type": "object",
+      "properties": {
+        "youngs_modulus": { "type": "number" },
+        "ultimate_tensile_strength": { "type": "number" }
+      },
+      "required": ["youngs_modulus", "ultimate_tensile_strength"]
+    }
+  },
+  "required": ["sample_id", "width", "thickness", "length", "data", "extracted_properties"]
+}

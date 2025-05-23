@@ -172,3 +172,26 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Environment config
+.env
+
+# System files
+.DS_Store
+__MACOSX/
+
+# Output scripts (if regenerated)
+setup_postgres*.sh
+setup_mongo*.sh
+
+# Data archives
+*.zip
+
+# Extracted dataset
+FAIRtrain-schema/
+
+# MongoDB import logs
+*.imported.json
+
+# PostgreSQL or Mongo temp files
+*.sql~
