@@ -1,6 +1,6 @@
 # database_setup
 
-## 📁 Directory Structure
+## Directory Structure
 - Sample data:
 ```
 FAIRtrain-schema/
