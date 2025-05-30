@@ -56,8 +56,9 @@ chmod +x setup_postgres.sh
 ```
 psql -U $(whoami) -d fairtrain
 SELECT * FROM samples LIMIT 5;
+SELECT * FROM force_data LIMIT 5;
 ```
-    -   This shows the top 5 records in the database
+    -   This shows the top 5 records
 
 ### 5. View in pgAdmin (optional)
 Install pgAdmin via website: https://www.pgadmin.org/download/pgadmin-4-macos/
