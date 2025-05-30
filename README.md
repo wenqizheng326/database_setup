@@ -43,6 +43,7 @@ createdb -U $(whoami) fairtrain
 
 ### 4. Run the PostgreSQL setup script
 ```bash
+bash setup_postgres.sh
 chmod +x setup_postgres.sh
 ./setup_postgres.sh
 ```
@@ -94,6 +95,7 @@ MONGO_DB="monogo database name"
 
 ### 3. Run the MongoDB setup script
 ```bash
+bash setup_mongo.sh
 chmod +x setup_mongo.sh
 ./setup_mongo.sh
 ```
@@ -107,8 +109,8 @@ chmod +x setup_mongo.sh
 ```bash
 mongosh
 use fairtrain
-db.samples.findOne()
-db.dictionaries.find().limit(3)
+db.getCollectionNames()
+db.<collectionName>.findOne()
 ```
 This shows the first 3 records on mongobd
 
