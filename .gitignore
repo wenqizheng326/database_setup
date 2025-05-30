@@ -192,4 +192,4 @@ FAIRtrain-schema/
 # PostgreSQL or Mongo temp files
 *.sql~
 
-preprocess_*/
+preprocessed_*/
