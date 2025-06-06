@@ -10,7 +10,11 @@ CREATE TABLE samples (
   sample_id TEXT PRIMARY KEY,
   width NUMERIC,
   thickness NUMERIC,
-  length NUMERIC
+  length NUMERIC,
+  material TEXT,
+  yield_strength NUMERIC,
+  uts NUMERIC,
+  elongation NUMERIC
 );
 
 CREATE TABLE force_data (
@@ -37,8 +41,8 @@ sample_out = open("preprocessed_postgres/samples.csv", "w", newline="")
 force_out = open("preprocessed_postgres/force_data.csv", "w", newline="")
 sw = csv.writer(sample_out)
 fw = csv.writer(force_out)
-sw.writerow(["sample_id", "width", "thickness", "length"])
-fw.writerow(["sample_id", "displacement", "force"])
+sw.writerow(["sample_id", "width(mm)", "thickness(mm)", "length(mm)"]) # keeping the units of the dimensions
+fw.writerow(["sample_id", "displacement(mm)", "force(N)"]) # keeping the units of displacement
 
 for fname in os.listdir(data_path):
     if not fname.endswith(".csv"): continue
