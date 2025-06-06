@@ -59,7 +59,7 @@ psql -U $(whoami) -d fairtrain
 SELECT * FROM samples LIMIT 5;
 SELECT * FROM force_data LIMIT 5;
 ```
-    -   This shows the top 5 records
+This shows the top 5 records
 
 ### 5. View in pgAdmin (optional)
 Install pgAdmin via website: https://www.pgadmin.org/download/pgadmin-4-macos/
@@ -108,7 +108,7 @@ use fairtrain
 db.getCollectionNames()
 db.<collectionName>.findOne()
 ```
-This shows the first 3 records on mongobd
+This shows the one of the records stored in the collection on mongobd
 
 ### 4. View on mongo compass (optional)
 Install MongoDB Compass from website: https://www.mongodb.com/try/download/compass
