@@ -193,3 +193,6 @@ chmod +x export_query_mongo.sh
   4. Top 5 records with highest UTS
   5. Top 5 records with `groupA` in sampleId and highest UTS
 - Exports result to `exported_query/mongo/` as `.csv`
+
+## Trouble Shooting
+If there is an issue with bash where it states ```Permission denied```, make sure to run the ```chmod +x <bash_file_name>``` first before the ```./<bash_file_name>```
