@@ -22,6 +22,7 @@ Create a `.env` file with the following content:
 DB_USER=mac_username
 DB_NAME=fairtrain
 MONGO_DB=fairtrain
+MONGO_URI=mongodb_connection_string   # i.e. for local connection, set it as: mongodb://localhost:27017/ 
 DATA_PATH=path_to_data_files_csv_files
 DICT_PATH=path_to_dictionary_files_json_files
 ```
@@ -88,13 +89,7 @@ brew install mongodb-community
 brew services start mongodb/brew/mongodb-community
 ```
 
-### 2. Extend `.env`
-Add to your `.env`:
-```env
-MONGO_DB="monogo database name"
-```
-
-### 3. Run the MongoDB setup script
+### 2. Run the MongoDB setup script
 ```bash
 bash setup_mongo.sh
 chmod +x setup_mongo.sh
@@ -106,7 +101,7 @@ chmod +x setup_mongo.sh
   - Imports all CSVs from `$DATA_PATH` into individual collections
   - Imports all JSONs from `$DICT_PATH` into a shared `dictionaries` collection
 
-### 4. Verify in `mongosh`
+### 3. Verify in `mongosh`
 ```bash
 mongosh
 use fairtrain
@@ -115,12 +110,12 @@ db.<collectionName>.findOne()
 ```
 This shows the first 3 records on mongobd
 
-### 5. View on mongo compass (optional)
+### 4. View on mongo compass (optional)
 Install MongoDB Compass from website: https://www.mongodb.com/try/download/compass
 
 - Open mongodb compass
 - Go to connections tab on the left-hand side
-- Hover over `localhost:27017` until CONNECT button appears, then click on it
+- Hover over your connection or `localhost:27017` if you have a local connection until CONNECT button appears, then click on it
 - Click on the database that you created, in this example, it would be fairtrain
 
 ## 🗃️ Data Export Scripts
