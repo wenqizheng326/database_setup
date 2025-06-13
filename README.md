@@ -74,8 +74,9 @@ Install pgAdmin via website: https://www.pgadmin.org/download/pgadmin-4-macos/
     - username: your_mac_username 
 - Go to Object Explorer tab on the left side
 - Click on server that you created (the one that was named)
-- Click on `schemas`, then `tables`, then `samples`
-- Right-click samples tab on the object explorer tab
+- Click on `schemas`, then `tables`, then `samples` (i.e. your table names)
+    - make sure your tables are up to date, right-click tables and click refresh to make sure that they are
+- Right-click samples (your table that you would like to view) tab on the object explorer tab
     - Click on View/Edit Data then click on All Rows
     - Click on the Data Output tab at the bottom of the page if not already opened
 
@@ -118,7 +119,7 @@ Install MongoDB Compass from website: https://www.mongodb.com/try/download/compa
 - Hover over your connection or `localhost:27017` if you have a local connection until CONNECT button appears, then click on it
 - Click on the database that you created, in this example, it would be fairtrain
 
-## 🗃️ Data Export Scripts
+## Data Export Scripts
 
 ### Exporting Data from PostgreSQL
 
@@ -193,6 +194,15 @@ chmod +x export_query_mongo.sh
   4. Top 5 records with highest UTS
   5. Top 5 records with `groupA` in sampleId and highest UTS
 - Exports result to `exported_query/mongo/` as `.csv`
+
+## Uploading to PostgreSQL via JSON Files
+```bash
+bash json_postgre.sh
+chmod +x json_postgre.sh
+./json_postgre.sh
+```
+- This script will take a while (more than just a couple of minutes)
+    - Recommend viewing this on pgAdmin, instructions provided above
 
 ## Trouble Shooting
 If there is an issue with bash where it states ```Permission denied```, make sure to run the ```chmod +x <bash_file_name>``` first before the ```./<bash_file_name>```
